@@ -1,0 +1,73 @@
+.background{
+  font-family: "Ariel", sans-serif;
+  background-image: url("./TAS_Background.jpeg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+body{
+  font-family: "Ariel", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  min-height: 100vh;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.App{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 100%;
+  margin: 0;
+}
+
+.controls button,
+.controls select{
+  margin: 5px 0;
+  padding: 5px 10px;
+  background-color: #C9182D;
+  color: whitesmoke;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.app-content{
+  flex: 1;
+  background-color: rgba(255,255,255,0.8);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin: 20px;
+}
+
+.preview{
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 100%;
+  margin: 120px 0 0 200px;
+}
+
+.preview > div{
+  background-color: transparent;
+  box-shadow: none;
+}
