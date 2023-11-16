@@ -1,3 +1,47 @@
+/*
+Script by: Alexander McNair
+
+Documentation by: Jesse White
+
+Last Updated: 11/16/2023
+
+Purpose of the Script: 
+
+
+App() - 
+
+
+useEffect - 
+
+
+handleFileChange -
+
+
+handleFileSelect - 
+
+
+handleViewDocument -
+
+
+handlePreviousPage -
+
+
+handleNextPage - 
+
+
+handleUpload -
+
+
+handleDelete -
+
+
+handleEdit -
+
+
+handleViewPowerPoint -
+
+*/
+
 import { useState,useRef,useEffect } from "react";
 import DocViewer from "@cyntler/react-doc-viewer";
 import { BlobServiceClient, } from "@azure/storage-blob";
@@ -18,6 +62,8 @@ function App(){
   const [DeletebuttonPopup, setButtonPopUpDelete] = useState(false);
   const [EditbuttonPopup, setButtonPopUpEdit] = useState(false);
 
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
   useEffect(() => {
     const history = localStorage.getItem("fileHistory");
     if (history){
@@ -25,6 +71,8 @@ function App(){
     }
   },[]);
 
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     setSelectedFile(file);
@@ -34,6 +82,9 @@ function App(){
     setFileHistory(newHistory);
     localStorage.setItem("fileHistory",JSON.stringify(newHistory));
   };
+
+//-----------------------------------------------------------------------------------------------------------------
+  
   const handleFileSelect = (index) => {
     const selected = fileHistory[index];
     setSelectedFile(selected);
@@ -41,6 +92,8 @@ function App(){
     setCurrentPage(1);
   };
 
+//-----------------------------------------------------------------------------------------------------------------
+  
   const handleViewDocument = async () => {
     try {
       // Replace 'your-connection-string' and 'your-container-name' with your actual Azure Storage connection string and container name
@@ -69,31 +122,43 @@ function App(){
     }
   };
 
+//-----------------------------------------------------------------------------------------------------------------
+  
   const handlePreviousPage = () =>{
     if (currentPage > 1){
       setCurrentPage(currentPage -1 );
     }
   };
+
   const totalPages = 10;
+
   const handleNextPage = () => {
     if (currentPage < totalPages){
       setCurrentPage(currentPage + 1);
     }
   };
 
+//-----------------------------------------------------------------------------------------------------------------
+  
   const handleUpload = () =>{
   //fileInputRef.current.click();
   setButtonPopUpUpload(true);
   };
 
+//-----------------------------------------------------------------------------------------------------------------
+  
   const handleDelete = () =>{
   setButtonPopUpDelete(true);
   };
 
+//-----------------------------------------------------------------------------------------------------------------
+  
   const handleEdit = () =>{
     setButtonPopUpEdit(true);
   };
 
+//-----------------------------------------------------------------------------------------------------------------
+  
   const handleViewPowerPoint = () =>{
     if (selectedFile && selectedFile.type ==="application/vnd.openxmlformats-officedocument.presentationml.presentation"){
       setPreviewOpen(true);
@@ -102,10 +167,14 @@ function App(){
     }
   };
 
+//-----------------------------------------------------------------------------------------------------------------
+  
   const handlePress =() =>{
     alert("Nugget");
   }
 
+//-----------------------------------------------------------------------------------------------------------------
+  
   return(
     <div className="App">
       <div className="controls">
@@ -153,6 +222,8 @@ function App(){
   );
 
 }
+
+//-----------------------------------------------------------------------------------------------------------------
 
 function AppWithBackground(){
   return(

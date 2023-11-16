@@ -1,3 +1,33 @@
+/*
+Script by: Alexander McNair
+
+Documentation by: Jesse White
+
+Last Updated: 11/16/2023
+
+Purpose of the Script: This file constructs the basic UI details that are featured in the app.
+By defining elements like the font family, orientation, and margins, the app is able to display
+its relevant features to the user.
+
+.background -
+
+
+body -
+
+
+.App -
+
+
+.controls (button and select) -
+
+
+.app-content -
+
+
+.preview -
+
+*/
+
 .background{
   font-family: "Ariel", sans-serif;
   background-image: url("./TAS_Background.jpeg");
