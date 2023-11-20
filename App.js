@@ -1,45 +1,14 @@
 /*
-Script by: Alexander McNair
+Script by: Marissa Morton, Robbie Lewis, and Alexander McNair
 
 Documentation by: Jesse White
 
-Last Updated: 11/16/2023
+Last Updated: 11/19/2023
 
 Purpose of the Script: 
 
 
-App() - 
-
-
-useEffect - 
-
-
-handleFileChange -
-
-
-handleFileSelect - 
-
-
-handleViewDocument -
-
-
-handlePreviousPage -
-
-
-handleNextPage - 
-
-
-handleUpload -
-
-
-handleDelete -
-
-
-handleEdit -
-
-
-handleViewPowerPoint -
-
+JavaScript Documentation can be found here: https://www.w3schools.com/js/default.asp
 */
 
 import { useState,useRef,useEffect } from "react";
@@ -61,9 +30,10 @@ function App(){
   const [UploadbuttonPopup, setButtonPopUpUpload] = useState(false);
   const [DeletebuttonPopup, setButtonPopUpDelete] = useState(false);
   const [EditbuttonPopup, setButtonPopUpEdit] = useState(false);
+  const totalPages = 10;
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  
+  //Method that checks for possible user history, and displays it.
   useEffect(() => {
     const history = localStorage.getItem("fileHistory");
     if (history){
@@ -72,7 +42,8 @@ function App(){
   },[]);
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  
+  //Method that handles changing between and displaying files present in the Azure blob.
+  //Also updates the recent file history display.
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     setSelectedFile(file);
@@ -84,7 +55,7 @@ function App(){
   };
 
 //-----------------------------------------------------------------------------------------------------------------
-  
+  //Method that displays the currently selected file from the Azure blob.
   const handleFileSelect = (index) => {
     const selected = fileHistory[index];
     setSelectedFile(selected);
@@ -123,15 +94,15 @@ function App(){
   };
 
 //-----------------------------------------------------------------------------------------------------------------
-  
+  //Returns to the previous page of the file display
   const handlePreviousPage = () =>{
     if (currentPage > 1){
       setCurrentPage(currentPage -1 );
     }
   };
 
-  const totalPages = 10;
-
+//-----------------------------------------------------------------------------------------------------------------
+  //Proceeds to the next page of the file display
   const handleNextPage = () => {
     if (currentPage < totalPages){
       setCurrentPage(currentPage + 1);
@@ -139,20 +110,20 @@ function App(){
   };
 
 //-----------------------------------------------------------------------------------------------------------------
-  
+  //Displays Upload Popup UI element
   const handleUpload = () =>{
   //fileInputRef.current.click();
   setButtonPopUpUpload(true);
   };
 
 //-----------------------------------------------------------------------------------------------------------------
-  
+  //Displays Delete Popup UI element
   const handleDelete = () =>{
   setButtonPopUpDelete(true);
   };
 
 //-----------------------------------------------------------------------------------------------------------------
-  
+  //Displays Edit Popup UI element
   const handleEdit = () =>{
     setButtonPopUpEdit(true);
   };
