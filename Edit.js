@@ -6,10 +6,8 @@ async function download(containerClient, blobName) {
  const blockBlobClient = await containerClient.getBlockBlobClient(blobName);
   //console.log(`created blob:\n\tname=${blobName}\n\turl=${blockBlobClient.url}`);
   var fileName = blobName;
-  let blob = await fetch(blockBlobClient.url).then(r => r.blob());
-  const url = window.URL.createObjectURL(new Blob([blob]));
   const link = document.createElement('a');
-  link.href = url;
+  link.href = blockBlobClient.url;
   link.download = fileName;
   document.body.appendChild(link);
   link.click();
