@@ -1,8 +1,17 @@
+/*
+Script by: Marissa Morton, Robbie Lewis, and Alexander McNair
+
+Documentation by: Jesse White
+
+Last Updated: 11/20/2023
+
+Purpose of the Script: This file details the process of the Edit functionality featured in the app. It connects to the blob, finds
+and lists the files held in the blob, and then downloads them after the user inputs the correct file name.
+*/
 import React, {useRef, useState} from "react";
 import { BlobServiceClient,} from "@azure/storage-blob";
 
 async function download(containerClient, blobName) {
-
  const blockBlobClient = await containerClient.getBlockBlobClient(blobName);
   //console.log(`created blob:\n\tname=${blobName}\n\turl=${blockBlobClient.url}`);
   var fileName = blobName;
@@ -12,9 +21,9 @@ async function download(containerClient, blobName) {
   document.body.appendChild(link);
   link.click();
   link.parentNode.removeChild(link);
-  
 }
 
+//-----------------------------------------------------------------------------------------------------------------
 
   async function connection(container_name,blobName){
     const connStr = "BlobEndpoint=https://seniorprojetblob.blob.core.windows.net/;QueueEndpoint=https://seniorprojetblob.queue.core.windows.net/;FileEndpoint=https://seniorprojetblob.file.core.windows.net/;TableEndpoint=https://seniorprojetblob.table.core.windows.net/;SharedAccessSignature=sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2023-12-21T03:02:04Z&st=2023-10-27T18:02:04Z&spr=https&sig=2r2wGTSMIMZTvue5v0PGgBydGD4n8i9CImSfjZlBTYI%3D";
@@ -24,6 +33,8 @@ async function download(containerClient, blobName) {
     download(container_Client,blobName);
   }
 
+//-----------------------------------------------------------------------------------------------------------------
+
   async function connectionList(container_name){
     const connStr = "BlobEndpoint=https://seniorprojetblob.blob.core.windows.net/;QueueEndpoint=https://seniorprojetblob.queue.core.windows.net/;FileEndpoint=https://seniorprojetblob.file.core.windows.net/;TableEndpoint=https://seniorprojetblob.table.core.windows.net/;SharedAccessSignature=sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2023-12-21T03:02:04Z&st=2023-10-27T18:02:04Z&spr=https&sig=2r2wGTSMIMZTvue5v0PGgBydGD4n8i9CImSfjZlBTYI%3D";
     const blobServiceClient = BlobServiceClient.fromConnectionString(connStr);
@@ -31,7 +42,7 @@ async function download(containerClient, blobName) {
     listBlobHierarchical(container_Client,"")
   }
 
-
+//-----------------------------------------------------------------------------------------------------------------
 
 // Recursively list virtual folders and blobs
 // Pass an empty string for prefixStr to list everything in the container
@@ -82,7 +93,8 @@ async function listBlobHierarchical(containerClient, prefixStr) {
   document.getElementById("Test").innerHTML = ('File List:' + files.toString());
 }
  
-  
+//-----------------------------------------------------------------------------------------------------------------  
+
 function Edit(props){
    
    const ref = useRef();
@@ -91,7 +103,8 @@ function Edit(props){
     connection("dobfiletest",ref.current.value)
    };
    
-    
+//-----------------------------------------------------------------------------------------------------------------
+
     return(props.trigger) ? (
       <div className="Edit">
           <form onSubmit= {handleSubmit}>
@@ -103,7 +116,7 @@ function Edit(props){
             Edit File
           </button>
           <p onLoad={connectionList("dobfiletest","")}>
-            To Edit a file exactly as so: File.txt should be inputted as File.txt
+            Please input the file name with its type. Example: Text.txt
           </p>
           <p id ="Test"></p>
           </form>

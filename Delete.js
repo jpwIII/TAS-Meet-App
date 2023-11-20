@@ -1,15 +1,13 @@
 /*
-Script by: Alexander McNair
+Script by: Marissa Morton, Robbie Lewis, and Alexander McNair
 
 Documentation by: Jesse White
 
-Last Updated: 11/16/2023
+Last Updated: 11/20/2023
 
-Purpose of the Script: This file details the process of the Delete functionality featured in the app.
-
-
+Purpose of the Script: This file details the process of the Delete functionality featured in the app. It connects to the blob, finds
+the files held in the blob, and then removes them after the user inputs the correct file name.
 */
-
 import React, {useRef} from "react";
 import { BlobServiceClient,} from "@azure/storage-blob";
 
@@ -114,7 +112,7 @@ import { BlobServiceClient,} from "@azure/storage-blob";
             Delete File
           </button>
           <p onLoad={connectionList("dobfiletest","")}>
-            To delete input a file exactly as so: File.txt should be inputted as File.txt
+            Please input the file name with its type. Example: Text.txt, image.png, Photo1.jpeg
           </p>
           <p id ="Test"></p>
           </form>

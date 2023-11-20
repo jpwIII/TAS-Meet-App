@@ -1,3 +1,13 @@
+/*
+Script by: Marissa Morton, Robbie Lewis, and Alexander McNair
+
+Documentation by: Jesse White
+
+Last Updated: 11/20/2023
+
+Purpose of the Script: This file details the process of the Delete functionality featured in the app. It connects to the blob, finds
+the files held in the blob, and then removes them after the user inputs the correct files name.
+*/
 import React, {useState} from "react";
 import { BlobServiceClient, } from "@azure/storage-blob";
 
@@ -17,7 +27,8 @@ async function uploadImage(containerName, file){
     alert('Upload of file completed');
   }
   
-  
+//-----------------------------------------------------------------------------------------------------------------
+
   function Upload(props){
     const [file, setfile] = useState(null);
   
@@ -29,7 +40,9 @@ async function uploadImage(containerName, file){
       event.preventDefault();
       uploadImage("dobfiletest", file);
     };
-  
+
+//-----------------------------------------------------------------------------------------------------------------
+
     return(props.trigger) ? (
         <div className="upload">
             <div className="upload-inner">
