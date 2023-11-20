@@ -11,6 +11,7 @@ async function uploadImage(containerName, file){
     const result = await blockBlobClient.uploadBrowserData(file, {
       blockSize: 4 * 1024 * 1024,
       concurrency: 20,
+      overwrite: true,
       onProgress: ev => console.log(ev)
     });
     alert('Upload of file completed');
