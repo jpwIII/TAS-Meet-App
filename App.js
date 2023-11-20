@@ -3,12 +3,14 @@ Script by: Marissa Morton, Robbie Lewis, and Alexander McNair
 
 Documentation by: Jesse White
 
-Last Updated: 11/19/2023
+Last Updated: 11/20/2023
 
-Purpose of the Script: 
-
+Purpose of the Script: This is the main application script that features the blob connection, handles the
+UI updates dependant on what state the user is in (selecting files, uploading, deleting, and editing), and keeps track
+of the user's recent file history.
 
 JavaScript Documentation can be found here: https://www.w3schools.com/js/default.asp
+HTML Documentation can be found here: https://www.w3schools.com/html/default.asp 
 */
 
 import { useState,useRef,useEffect } from "react";
@@ -64,8 +66,8 @@ function App(){
   };
 
 //-----------------------------------------------------------------------------------------------------------------
-  
-  const handleViewDocument = async () => {
+  //View Microsoft related file types in the viewer
+  /*const handleViewDocument = async () => {
     try {
       // Replace 'your-connection-string' and 'your-container-name' with your actual Azure Storage connection string and container name
       const connectionString = 'https://seniorprojetblob.blob.core.windows.net/;QueueEndpoint=https://seniorprojetblob.queue.core.windows.net/;FileEndpoint=https://seniorprojetblob.file.core.windows.net/;TableEndpoint=https://seniorprojetblob.table.core.windows.net/;SharedAccessSignature=sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2023-12-21T03:02:04Z&st=2023-10-27T18:02:04Z&spr=https&sig=2r2wGTSMIMZTvue5v0PGgBydGD4n8i9CImSfjZlBTYI%3D';
@@ -91,7 +93,7 @@ function App(){
       console.error('Error fetching document from Azure Storage Blob:', error);
       alert('Error fetching document. Please try again.');
     }
-  };
+  };*/
 
 //-----------------------------------------------------------------------------------------------------------------
   //Returns to the previous page of the file display
@@ -129,14 +131,14 @@ function App(){
   };
 
 //-----------------------------------------------------------------------------------------------------------------
-  
-  const handleViewPowerPoint = () =>{
+  //Display PowerPoint files in the viewer
+  /*const handleViewPowerPoint = () =>{
     if (selectedFile && selectedFile.type ==="application/vnd.openxmlformats-officedocument.presentationml.presentation"){
       setPreviewOpen(true);
     } else{
       alert("Please select a valid PowerPoint presentation to view.");
     }
-  };
+  };*/
 
 //-----------------------------------------------------------------------------------------------------------------
   
@@ -145,7 +147,8 @@ function App(){
   }
 
 //-----------------------------------------------------------------------------------------------------------------
-  
+  //HTML webpage formatting code that determines the placement of elements
+  //on the user's screen as well as determines the functionality of clickable buttons present.
   return(
     <div className="App">
       <div className="controls">
