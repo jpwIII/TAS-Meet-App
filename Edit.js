@@ -3,10 +3,14 @@ Script by: Marissa Morton, Robbie Lewis, and Alexander McNair
 
 Documentation by: Jesse White
 
-Last Updated: 11/20/2023
+Last Updated: 11/24/2023
 
 Purpose of the Script: This file details the process of the Edit functionality featured in the app. It connects to the blob, finds
-and lists the files held in the blob, and then downloads them after the user inputs the correct file name.
+and lists the files held in the blob, and then downloads them after the user inputs the correct file name. This way, the user can 
+update the file on their system and reupload it later.
+
+JavaScript Documentation can be found here: https://www.w3schools.com/js/default.asp
+HTML Documentation can be found here: https://www.w3schools.com/html/default.asp 
 */
 import React, {useRef, useState} from "react";
 import { BlobServiceClient,} from "@azure/storage-blob";
@@ -43,7 +47,7 @@ async function download(containerClient, blobName) {
   }
 
 //-----------------------------------------------------------------------------------------------------------------
-
+//Displays the names of the files stored in the blob onto the UI
 // Recursively list virtual folders and blobs
 // Pass an empty string for prefixStr to list everything in the container
 async function listBlobHierarchical(containerClient, prefixStr) {
@@ -94,9 +98,9 @@ async function listBlobHierarchical(containerClient, prefixStr) {
 }
  
 //-----------------------------------------------------------------------------------------------------------------  
-
+//When triggered by the user, it displays the edit specific UI to the screen
 function Edit(props){
-   
+  
    const ref = useRef();
    const handleSubmit = (e) => {
     e.preventDefault();
@@ -104,7 +108,7 @@ function Edit(props){
    };
    
 //-----------------------------------------------------------------------------------------------------------------
-
+    //HTML formatting code that displays the Edit subwindow information as well as determines the button functionality
     return(props.trigger) ? (
       <div className="Edit">
           <form onSubmit= {handleSubmit}>

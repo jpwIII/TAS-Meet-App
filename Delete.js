@@ -3,14 +3,17 @@ Script by: Marissa Morton, Robbie Lewis, and Alexander McNair
 
 Documentation by: Jesse White
 
-Last Updated: 11/20/2023
+Last Updated: 11/24/2023
 
 Purpose of the Script: This file details the process of the Delete functionality featured in the app. It connects to the blob, finds
 the files held in the blob, and then removes them after the user inputs the correct file name.
+
+JavaScript Documentation can be found here: https://www.w3schools.com/js/default.asp
+HTML Documentation can be found here: https://www.w3schools.com/html/default.asp 
 */
 import React, {useRef} from "react";
 import { BlobServiceClient,} from "@azure/storage-blob";
-
+  
   async function DeleteButton(containerClient, blobName){
     // include: Delete the base blob and all of its snapshots.
     // only: Delete only the blob's snapshots and not the blob itself.
@@ -24,7 +27,7 @@ import { BlobServiceClient,} from "@azure/storage-blob";
   }
 
 //-----------------------------------------------------------------------------------------------------------------
-  
+  //Connects to the blob and finds the file name input by the user, then calls the delete functionality
   async function connection(container_name,blobName){
     const connStr = "BlobEndpoint=https://seniorprojetblob.blob.core.windows.net/;QueueEndpoint=https://seniorprojetblob.queue.core.windows.net/;FileEndpoint=https://seniorprojetblob.file.core.windows.net/;TableEndpoint=https://seniorprojetblob.table.core.windows.net/;SharedAccessSignature=sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2023-12-21T03:02:04Z&st=2023-10-27T18:02:04Z&spr=https&sig=2r2wGTSMIMZTvue5v0PGgBydGD4n8i9CImSfjZlBTYI%3D";
     const blobServiceClient = BlobServiceClient.fromConnectionString(connStr);
@@ -33,7 +36,7 @@ import { BlobServiceClient,} from "@azure/storage-blob";
   }
   
 //-----------------------------------------------------------------------------------------------------------------
-
+  //Connects to the blob to gather file name information, then calls the function to display the file names
   async function connectionList(container_name){
     const connStr = "BlobEndpoint=https://seniorprojetblob.blob.core.windows.net/;QueueEndpoint=https://seniorprojetblob.queue.core.windows.net/;FileEndpoint=https://seniorprojetblob.file.core.windows.net/;TableEndpoint=https://seniorprojetblob.table.core.windows.net/;SharedAccessSignature=sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2023-12-21T03:02:04Z&st=2023-10-27T18:02:04Z&spr=https&sig=2r2wGTSMIMZTvue5v0PGgBydGD4n8i9CImSfjZlBTYI%3D";
     const blobServiceClient = BlobServiceClient.fromConnectionString(connStr);
@@ -42,7 +45,7 @@ import { BlobServiceClient,} from "@azure/storage-blob";
   }
 
 //-----------------------------------------------------------------------------------------------------------------
-  
+  //Displays the names of the files stored in the blob onto the UI
   async function listBlobHierarchical(containerClient, prefixStr) {
 
     // page size - artificially low as example
@@ -90,7 +93,7 @@ import { BlobServiceClient,} from "@azure/storage-blob";
   }
 
 //-----------------------------------------------------------------------------------------------------------------
-  
+  //When triggered by the user, it displays the Delete specific UI to the screen
   function Delete(props){
    
    const ref = useRef();
@@ -100,7 +103,7 @@ import { BlobServiceClient,} from "@azure/storage-blob";
    };
 
 //-----------------------------------------------------------------------------------------------------------------
-    
+    //HTML formatting code that displays the Delete subwindow information as well as determines the button functionality
     return(props.trigger) ? (
       <div className="Delete">
           <form onSubmit= {handleSubmit}>

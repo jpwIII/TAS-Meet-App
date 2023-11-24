@@ -3,10 +3,13 @@ Script by: Marissa Morton, Robbie Lewis, and Alexander McNair
 
 Documentation by: Jesse White
 
-Last Updated: 11/20/2023
+Last Updated: 11/24/2023
 
-Purpose of the Script: This file details the process of the Delete functionality featured in the app. It connects to the blob, finds
-the files held in the blob, and then removes them after the user inputs the correct files name.
+Purpose of the Script: This file details the process of the Upload functionality featured in the app. It connects to the blob,
+allows the user to select a file from their file explorer, and uploads that file to the blob.
+
+JavaScript Documentation can be found here: https://www.w3schools.com/js/default.asp
+HTML Documentation can be found here: https://www.w3schools.com/html/default.asp 
 */
 import React, {useState} from "react";
 import { BlobServiceClient, } from "@azure/storage-blob";
@@ -28,7 +31,7 @@ async function uploadImage(containerName, file){
   }
   
 //-----------------------------------------------------------------------------------------------------------------
-
+  //When triggered by the user, it displays the Upload specific UI to the screen
   function Upload(props){
     const [file, setfile] = useState(null);
   
@@ -42,7 +45,7 @@ async function uploadImage(containerName, file){
     };
 
 //-----------------------------------------------------------------------------------------------------------------
-
+    //HTML formatting code that displays the Upload subwindow information as well as determines the button functionality
     return(props.trigger) ? (
         <div className="upload">
             <div className="upload-inner">
