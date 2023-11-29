@@ -3,7 +3,7 @@ Script by: Marissa Morton, Robbie Lewis, and Alexander McNair
 
 Documentation by: Jesse White
 
-Last Updated: 11/24/2023
+Last Updated: 11/29/2023
 
 Purpose of the Script: This file details the process of the Edit functionality featured in the app. It connects to the blob, finds
 and lists the files held in the blob, and then downloads them after the user inputs the correct file name. This way, the user can 
@@ -28,7 +28,7 @@ async function download(containerClient, blobName) {
 }
 
 //-----------------------------------------------------------------------------------------------------------------
-
+  //Connects to the blob and finds the file name input by the user, then downloads the file
   async function connection(container_name,blobName){
     const connStr = "BlobEndpoint=https://seniorprojetblob.blob.core.windows.net/;QueueEndpoint=https://seniorprojetblob.queue.core.windows.net/;FileEndpoint=https://seniorprojetblob.file.core.windows.net/;TableEndpoint=https://seniorprojetblob.table.core.windows.net/;SharedAccessSignature=sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2023-12-21T03:02:04Z&st=2023-10-27T18:02:04Z&spr=https&sig=2r2wGTSMIMZTvue5v0PGgBydGD4n8i9CImSfjZlBTYI%3D";
     const blobServiceClient = BlobServiceClient.fromConnectionString(connStr);
@@ -38,7 +38,7 @@ async function download(containerClient, blobName) {
   }
 
 //-----------------------------------------------------------------------------------------------------------------
-
+  //Connects to the blob to gather file name information, then calls the function to display the file names
   async function connectionList(container_name){
     const connStr = "BlobEndpoint=https://seniorprojetblob.blob.core.windows.net/;QueueEndpoint=https://seniorprojetblob.queue.core.windows.net/;FileEndpoint=https://seniorprojetblob.file.core.windows.net/;TableEndpoint=https://seniorprojetblob.table.core.windows.net/;SharedAccessSignature=sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2023-12-21T03:02:04Z&st=2023-10-27T18:02:04Z&spr=https&sig=2r2wGTSMIMZTvue5v0PGgBydGD4n8i9CImSfjZlBTYI%3D";
     const blobServiceClient = BlobServiceClient.fromConnectionString(connStr);
