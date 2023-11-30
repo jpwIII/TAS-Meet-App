@@ -52,12 +52,12 @@ async function uploadImage(containerName, file){
             <form onSubmit={handleSubmit}>
             <input type="file" onChange={handleFileChange}></input>
             <button type = "submit">
-             Upload Image
+            <strong>Upload Image</strong>
             </button>
         </form>
             </div>
             <button className="close-btn" onClick={() => props.setTrigger(false)}>
-                close
+              <strong>Close</strong>
             </button>
             {props.children}
         </div>

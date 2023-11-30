@@ -113,11 +113,13 @@ function Edit(props){
       <div className="Edit">
           <form onSubmit= {handleSubmit}>
           <label>
-          File_Name:
+          File Name:
+          <t>        </t>
           <input type="text" ref ={ref} />
           </label>
+          <t>        </t>
           <button type = "Submit">
-            Edit File
+          <strong>Edit File</strong>
           </button>
           <p onLoad={connectionList("dobfiletest","")}>
             Please input the file name with its type. Example: Text.txt
@@ -125,7 +127,7 @@ function Edit(props){
           <p id ="Test"></p>
           </form>
             <button className="close-btn" onClick={() => props.setTrigger(false)}>
-                close
+            <strong>Close</strong>
             </button>
             {props.children}
         </div>

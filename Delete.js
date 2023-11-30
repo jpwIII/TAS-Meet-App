@@ -112,7 +112,7 @@ import { BlobServiceClient,} from "@azure/storage-blob";
           <input type="text" ref ={ref} />
           </label>
           <button type = "Submit">
-            Delete File
+          <stong>Delete File</stong>
           </button>
           <p onLoad={connectionList("dobfiletest","")}>
             Please input the file name with its type. Example: Text.txt, image.png, Photo1.jpeg
@@ -120,7 +120,7 @@ import { BlobServiceClient,} from "@azure/storage-blob";
           <p id ="Test"></p>
           </form>
             <button className="close-btn" onClick={() => props.setTrigger(false)}>
-                close
+            <strong>Close</strong>
             </button>
             {props.children}
         </div>
