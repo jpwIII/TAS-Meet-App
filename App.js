@@ -131,49 +131,28 @@ function App(){
   };
 
 //-----------------------------------------------------------------------------------------------------------------
-  //Display PowerPoint files in the viewer
-  /*const handleViewPowerPoint = () =>{
-    if (selectedFile && selectedFile.type ==="application/vnd.openxmlformats-officedocument.presentationml.presentation"){
-      setPreviewOpen(true);
-    } else{
-      alert("Please select a valid PowerPoint presentation to view.");
-    }
-  };*/
-
-//-----------------------------------------------------------------------------------------------------------------
-  
-  const handlePress =() =>{
-    alert("Nugget");
-  }
-
-//-----------------------------------------------------------------------------------------------------------------
   //HTML webpage formatting code that determines the placement of elements
   //on the user's screen as well as determines the functionality of clickable buttons present.
   return(
     <div className="App">
       <div className="controls">
         <h1> Meeting Management System</h1>
-        <button onClick={handleViewDocument}> View Document</button>
-        <button onClick={handleUpload}>Upload</button>
+        <button onClick={handleViewDocument}><strong>View Document</strong></button>
+        <button onClick={handleUpload}><strong>Upload</strong></button>
         <Upload trigger ={UploadbuttonPopup} setTrigger={setButtonPopUpUpload}></Upload>
-        <button onClick={handleDelete}>Delete</button>
+        <button onClick={handleDelete}><strong>Delete</strong></button>
         <Delete trigger ={DeletebuttonPopup} setTrigger={setButtonPopUpDelete}></Delete>
         <button onClick={handleViewPowerPoint}>View Deck</button>
-        <button onClick={handleEdit}>Edit</button>
+        <button onClick={handleEdit}><strong>Edit</strong></button>
         <Edit trigger ={EditbuttonPopup} setTrigger={setButtonPopUpEdit}></Edit>
        <input type ="file" ref={fileInputRef} style={{display: "none"}} onChange={handleFileChange}/>
-        {selectedFile && (
-          <div className="selected-file">
-          <h3>Selected File: {selectedFile.name}</h3>
-          <p>Page: {currentPage}</p>
-          </div>
-        )}
+        
         {fileHistory.length > 0 && (
           <div className="file-history">
           <h3>Recent Files:</h3>
           <select onChange={(e) => handleFileSelect(e.target.selectedIndex)} size = {fileHistory.length} >
           {fileHistory.map((file,index) => (
-          <option key={index}>{file.name}</option>
+          <option key={index}><strong>{file.name}</strong></option>
             ))}
           </select>
           </div>
@@ -183,6 +162,11 @@ function App(){
         {isPreviewOpen && (
           <div>
           <h2>Preview:</h2>
+          {selectedFile && (
+          <div className="selected-file">
+          <h3>{selectedFile.name}</h3>
+          </div>
+        )}
           <DocViewer
           documents ={[{uri:URL.createObjectURL(selectedFile)}]}
           page={currentPage}
