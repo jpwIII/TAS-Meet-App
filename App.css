@@ -3,7 +3,7 @@ Script by: Marissa Morton, Robbie Lewis, and Alexander McNair
 
 Documentation by: Jesse White
 
-Last Updated: 11/19/2023
+Last Updated: 11/30/2023
 
 Purpose of the Script: This file constructs the basic UI details that are featured in the app.
 By defining elements like the font family, orientation, and margins for different aspects of the application,
@@ -55,8 +55,9 @@ body{
 .controls select{
   margin: 5px 2px;
   padding: 5px 10px;
-  background-color: #C9182D;
-  color: whitesmoke;
+  background-color: rgba(201, 24, 45, 1);
+  color: rgb(255, 255, 255);
+  text-shadow: -.5px 0 black, 0 .5px black, .5px 0 black, 0 0.5px black;
   border: none;
   cursor: pointer;
   border-radius: 4px;
@@ -65,19 +66,20 @@ body{
 
 .app-content{
   flex: 1;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 20px;
+  font-weight: 100;
 }
 
 .preview{
   text-align: center;
-  background-color: #fff;
+  background-color: #ffffff00;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0,0,0,0);
   max-width: 800px;
   margin: 120px 0 0 400px;
 }

@@ -3,7 +3,7 @@ Script by: Marissa Morton, Robbie Lewis, and Alexander McNair
 
 Documentation by: Jesse White
 
-Last Updated: 11/20/2023
+Last Updated: 11/30/2023
 
 Purpose of the Script: This is the main application script that features the blob connection, handles the
 UI updates dependant on what state the user is in (selecting files, uploading, deleting, and editing), and keeps track
