@@ -32,7 +32,7 @@ function App(){
   const [UploadbuttonPopup, setButtonPopUpUpload] = useState(false);
   const [DeletebuttonPopup, setButtonPopUpDelete] = useState(false);
   const [EditbuttonPopup, setButtonPopUpEdit] = useState(false);
-  const totalPages = 10;
+
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   //Method that checks for possible user history, and displays it.
@@ -96,25 +96,8 @@ function App(){
   };*/
 
 //-----------------------------------------------------------------------------------------------------------------
-  //Returns to the previous page of the file display
-  const handlePreviousPage = () =>{
-    if (currentPage > 1){
-      setCurrentPage(currentPage -1 );
-    }
-  };
-
-//-----------------------------------------------------------------------------------------------------------------
-  //Proceeds to the next page of the file display
-  const handleNextPage = () => {
-    if (currentPage < totalPages){
-      setCurrentPage(currentPage + 1);
-    }
-  };
-
-//-----------------------------------------------------------------------------------------------------------------
   //Displays Upload Popup UI element
   const handleUpload = () =>{
-  //fileInputRef.current.click();
   setButtonPopUpUpload(true);
   };
 
@@ -168,11 +151,12 @@ function App(){
           </div>
         )}
           <DocViewer
-          documents ={[{uri:URL.createObjectURL(selectedFile)}]}
+          documents ={[{uri:URL.createObjectURL(selectedFile)}]} config={{pdfZoom: {
+            defaultZoom: 2.5, // 1 as default,
+            zoomJump: 0.2, // 0.1 as default,
+          },}}
           page={currentPage}
           />
-          <button OnClick={handlePreviousPage}>← Previous Page</button>
-          <button OnClick={handleNextPage}>Next Page →</button>
           </div>
         )}
       </div>
