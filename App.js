@@ -67,33 +67,9 @@ function App(){
 
 //-----------------------------------------------------------------------------------------------------------------
   //View Microsoft related file types in the viewer
-  /*const handleViewDocument = async () => {
-    try {
-      // Replace 'your-connection-string' and 'your-container-name' with your actual Azure Storage connection string and container name
-      const connectionString = 'https://seniorprojetblob.blob.core.windows.net/;QueueEndpoint=https://seniorprojetblob.queue.core.windows.net/;FileEndpoint=https://seniorprojetblob.file.core.windows.net/;TableEndpoint=https://seniorprojetblob.table.core.windows.net/;SharedAccessSignature=sv=2022-11-02&ss=bfqt&srt=sco&sp=rwdlacupiytfx&se=2023-12-21T03:02:04Z&st=2023-10-27T18:02:04Z&spr=https&sig=2r2wGTSMIMZTvue5v0PGgBydGD4n8i9CImSfjZlBTYI%3D';
-      const containerName = 'dobfiletest';
-      const blobServiceClient = BlobServiceClient.fromConnectionString(connectionString);
-      const containerClient = blobServiceClient.getContainerClient(containerName);
-
-      // Replace 'your-blob-name' with the name of the blob you want to view
-      const blobName = 'Test.txt';
-      const blobClient = containerClient.getBlobClient(blobName);
-      
-      // Fetch the blob content
-      const response = await blobClient.download(0);
-      const blobContent = await streamToBuffer(response.readableStreamBody);
-
-      // Create a Blob object and set it in the state
-      const blob = new Blob([blobContent]);
-      setSelectedFile(blob);
-      setPreviewOpen(true);
-      setCurrentPage(1);
-
-    } catch (error) {
-      console.error('Error fetching document from Azure Storage Blob:', error);
-      alert('Error fetching document. Please try again.');
-    }
-  };*/
+  const handleViewDocument = async () => {
+    fileInputRef.current.click();
+  };
 
 //-----------------------------------------------------------------------------------------------------------------
   //Displays Upload Popup UI element
@@ -125,7 +101,6 @@ function App(){
         <Upload trigger ={UploadbuttonPopup} setTrigger={setButtonPopUpUpload}></Upload>
         <button onClick={handleDelete}><strong>Delete</strong></button>
         <Delete trigger ={DeletebuttonPopup} setTrigger={setButtonPopUpDelete}></Delete>
-        <button onClick={handleViewPowerPoint}>View Deck</button>
         <button onClick={handleEdit}><strong>Edit</strong></button>
         <Edit trigger ={EditbuttonPopup} setTrigger={setButtonPopUpEdit}></Edit>
        <input type ="file" ref={fileInputRef} style={{display: "none"}} onChange={handleFileChange}/>
